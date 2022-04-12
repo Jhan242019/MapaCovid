@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row map-row">
+    <div class="col-xl-3 z-depth-1">
+        <div class="form-group ">
+            <form class="mt-5" action="/" method="post">
+                <div class="mb-4">
+                    <label class="h4">Distrito</label>
+
+                    <select class="custom-select m" id="Dist">
+                        <option value="0">--Seleccionar Distrito--</option>
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.DistritoId">@item.Nombre</option>
+                        }
+                    </select>
+                </div>
+                <div>
+                    <label class="h4">Tipo de casos</label>
+                    <select class="custom-select" id="Tipo">
+                        <option value="">--Seleccionar tipo--</option>
+                        <option value="Positivo">Casos Positivos</option>
+                        <option value="Recuperado">Casos Recuperados</option>
+                    </select>
+                </div>
+            </form>
+            <hr class=" mt-5 mb-5" />
+            <div class="card" id="cardLeyenda">
+                <div class="align-content-between">
+                    <div class="my-3 text-center">
+                        <p class="card-title text-dark" id="fecha">Casos a la fecha: @DateTime.Now.ToShortDateString()</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-9 z-depth-1" >
+        <div id="map" ></div>
+    </div>
+</div>
+
+<div class="modal fade right" id="sideModalTR" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-side modal-top-right animated zoomInUp" role="document">
+        
+        <div class="modal-content">
+            <form class="text-center border border-light p-5" action="/Usuario/Login" method="post">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p class="h4 mb-4">Iniciar sesión</p>
+                <!-- Email -->
+                <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" name="NombreUsuario" placeholder="Usuario">
+                <!-- Password -->
+                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" name="Password" placeholder="Contraseña">
+                <!-- Sign in button -->
+                <button class="btn btn-block blue-gradient my-4" type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+    </div>
+</div>

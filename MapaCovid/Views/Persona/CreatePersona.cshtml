@@ -1,0 +1,77 @@
+﻿@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Use the geocoder without a map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
+          type="text/css" />
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+    <style>
+        #geocoder {
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+            top: 20px;
+        }
+
+        .mapboxgl-ctrl-geocoder {
+            min-width: 100%;
+        }
+    </style>
+    <div id="geocoder"></div>
+
+    <div>
+        <button id="a">aqui</button>
+    </div>
+    <div>
+        <input type="text" name="name" id="lat" value="" />
+        <input type="text" name="name" id="long" value="" />
+    </div>
+    <script src="~/lib/MDB/js/jquery.min.js"></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicGVkcm9hcXMwNSIsImEiOiJja2ZpZ29iaWowZDVwMnBsM3M2MGxkaWQxIn0.DYp69EtGMZKWNDF6dzuzmQ';
+        var geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            types: 'country,region,place,postcode,locality,neighborhood'
+        });
+
+        geocoder.addTo('#geocoder');
+        document.getElementById('a').addEventListener('click', function () {
+            console.log('diste click');
+            console.log(JSON.parse(geocoder.lastSelected));
+            var geo = JSON.parse(geocoder.lastSelected);
+            console.log('diste valors');
+            console.log(geo.center[1]);
+            console.log(geo.center[0]);
+            $('#lat').val(geo.center[1]);
+        });
+    </script>
+
+</body>
+</html>

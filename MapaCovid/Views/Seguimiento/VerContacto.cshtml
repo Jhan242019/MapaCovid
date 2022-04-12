@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "Contacto";
+}
+
+
+<div class="card h-75 mt-lg-5">
+    <div class="text-center mt-3 mb-3">
+        <h3 class="card-title text-dark font-weight-bold">Contacto</h3>
+    </div>
+    <form action="/Seguimiento/CreateContacto" method="post">
+        <div class="row my-3 mx-3">
+            <div class="col-xl-12 md-3">
+                <h4 class="card-subtitle text-justify font-weight-bold">Datos personales</h4>
+            </div>
+            <br />
+            <div class="col-xl-6 mb-3">
+                <label class="label">Nombre: @Model.Nombre</label>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label class="label">Apellidos: @Model.Apellido</label>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Edad: @Model.Edad</label>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Sexo: @Model.Sexo</label>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Parentesco: @Model.Parentesco</label>
+            </div>
+        </div>
+        <hr />
+        <div class="row my-3 mx-3">
+            <div class="col-xl-12 md-3">
+                <h4 class="card-subtitle text-justify font-weight-bold">Datos de contacto</h4>
+            </div>
+            <br />
+            <div class="col-xl-6 mb-3">
+                <label class="label">Celular: @Model.Celular</label>
+            </div>
+        </div>
+        <hr />
+        <div class="row my-3 mx-3">
+            <div class="col-xl-12 md-3">
+                <h4 class="card-subtitle text-justify font-weight-bold">Datos de geolocalización</h4>
+            </div>
+            <br />
+            <div class="col-xl-6 md-3">
+                <label class="label">Dirección: @Model.Direccion</label>
+            </div>
+        </div>
+    </form>
+</div>
+

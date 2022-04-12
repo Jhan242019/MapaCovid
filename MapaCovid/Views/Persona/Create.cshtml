@@ -1,0 +1,136 @@
+﻿
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "Create";
+}
+
+<div class="card h-75 mt-lg-5">
+    <div class="text-center mt-3 mb-3">
+        <h3 class="card-title text-dark font-weight-bold">Registrar Paciente</h3>
+    </div>
+    <form action="/Persona/Create" method="post">
+        <p class="text-danger">@Html.ValidationMessage("Paciente")</p>
+        <input type="hidden" name="Estado" value="Sin evaluación" />
+        <div class="row my-3 mx-3">
+            <div class="col-xl-12 md-3">
+                <h4 class="card-subtitle text-justify font-weight-bold">Datos personales</h4>
+            </div>
+            <br />
+            <div class="col-xl-6 mb-3">
+                <label class="label">Nombres</label>
+                <input type="text" class="form-control" name="Nombres" value="@Model.Nombres" />
+                @Html.ValidationMessage("Nombre")
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label class="label">Apellidos</label>
+                <input type="text" class="form-control" name="Apellidos" value="@Model.Apellidos" />
+                @Html.ValidationMessage("Apellido")
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label class="label">DNI</label>
+                <input type="text" class="form-control" name="DNI" value="@Model.DNI" />
+                @Html.ValidationMessage("DNI")
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Fecha de Nacimiento</label>
+                <input type="date" class="form-control" name="FechaNacimiento" value="@Model.FechaNacimiento" />
+                @Html.ValidationMessage("FechaNacimiento")
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Sexo</label>
+                <select class="custom-select " name="Sexo">
+                    <option value="">--Seleccione sexo--</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+                @Html.ValidationMessage("Sexo")
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Condicion de riesgo</label>
+                <input type="text" class="form-control" name="CondicionDeRiesgo" value="@Model.CondicionDeRiesgo" />
+                @Html.ValidationMessage("CondicionDeRiesgo")
+            </div>
+        </div>
+        <hr />
+        <div class="row my-3 mx-3">
+            <div class="col-xl-12 md-3">
+                <h4 class="card-subtitle text-justify font-weight-bold">Datos de contacto</h4>
+            </div>
+            <br />
+            <div class="col-xl-6 mb-3">
+                <label class="label">Celular</label>
+                <input class="form-control" type="text" name="NroCelular" value="@Model.NroCelular" />
+                @Html.ValidationMessage("NroCelular")
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Correo electrónico</label>
+                <input type="text" class="form-control" name="CorreoElectronico" value="@Model.CorreoElectronico" />
+                @Html.ValidationMessage("CorreoElectronico")
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Telefono de emergencia</label>
+                <input type="text" class="form-control" name="TelefonoEmergencia" value="@Model.TelefonoEmergencia" />
+                @Html.ValidationMessage("TelefonoEmergencia")
+            </div>
+        </div>
+        <hr />
+        <div class="row my-3 mx-3">
+            <div class="col-xl-12 md-3">
+                <h4 class="card-subtitle text-justify font-weight-bold">Datos de geolocalización</h4>
+            </div>
+            <br />
+            <div class="col-xl-6 md-3">
+                <label class="label">Distrito</label>
+                <select id="Dist" class="custom-select" name="distritoId">
+                    <option value="">--Seleccionar Distrito--</option>
+                    @foreach (var item in ViewBag.distritos)
+                    {
+                        <option value="@item.DistritoId">@item.Nombre</option>
+                    }
+                </select>
+                @Html.ValidationMessage("DistritoId")
+            </div>
+            <div class="col-xl-6 md-3">
+                <label class="label">Dirección</label>
+                <input type="text" class="form-control" name="Calle" value="@ViewBag.Ubicacion.Calle" />
+                @Html.ValidationMessage("Calle")
+            </div>
+            <div class="col-xl-12 md-3">
+                <label>Referencia: </label>
+                <textarea class="form-control md-textarea" name="Referencia" value="@ViewBag.Ubicacion.Referencia"></textarea>
+            </div>
+            <div class="col-xl-12 mt-3 mb-3">
+                <p class="alert alert-info">Presione click en el mapa donde se encuentre su vivienda</p>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <div class="mb-3">
+                    <label>Latitud</label>
+                    <input type="text" class="form-control" id="Lat" name="Lat" value="@ViewBag.Ubicacion.Lat" readonly />
+                    @Html.ValidationMessage("Latitud")
+                </div>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <div class="mb-3">
+                    <label>Longitud</label>
+                    <input type="text" class="form-control" id="Long" name="Long" value="@ViewBag.Ubicacion.Long" readonly />
+                    @Html.ValidationMessage("Longitud")
+                </div>
+            </div>
+            <div class="col-xl-12 mb-3">
+                <div id="map" style="height: 500px;"></div>
+            </div>
+        </div>
+
+
+        <hr />
+        <div class="row my-3 mx-3 text-right">
+            <div class="align-content-end my-3 mx-auto">
+                <a href="/Usuario/Index" class="btn btn-block danger-color text-white">Cancelar</a>
+            </div>
+            <div class="align-content-end my-3 mx-auto">
+                <button class="btn btn-block success-color text-white">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="~/js/site2.js"></script>

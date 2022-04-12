@@ -1,0 +1,318 @@
+{
+  "id": "77c4ca4d-40ea-4501-ae78-648ca930b832",
+  "version": "2.0",
+  "name": "Pruebas mapa covid 001",
+  "url": "https://localhost:44374/",
+  "tests": [{
+    "id": "9b90fe14-88a4-4375-9dd6-254aa09ed59e",
+    "name": "Prueba tarea CYP-15-01",
+    "commands": [{
+      "id": "0b47987c-df10-4a11-8243-704e37ebe5bb",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "96c5cca3-16f8-4246-aee5-a5076365f5ee",
+      "comment": "",
+      "command": "assertText",
+      "target": "xpath=//h2",
+      "targets": [
+        ["css=.font-italic", "css:finder"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Mapa De Pacientes Covid-19')]", "xpath:innerText"]
+      ],
+      "value": "Mapa De Pacientes Covid-19"
+    }, {
+      "id": "ad4e1e37-f49e-493a-b907-7296a6e8b566",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=map",
+      "targets": [
+        ["id=map", "id"],
+        ["css=#map", "css:finder"],
+        ["xpath=//div[@id='map']", "xpath:attributes"],
+        ["xpath=(//div[@id='Formulario']/div)[2]", "xpath:idRelative"],
+        ["xpath=//main/div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7b83739b-cb29-4b14-926b-00d027c76b40",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=Formulario",
+      "targets": [
+        ["id=Formulario", "id"],
+        ["xpath=//div[@id='Formulario']", "xpath:attributes"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "78968a4d-cd07-43dc-a90a-532aedbd9687",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.leaflet-interactive:nth-child(1)",
+      "targets": [
+        ["css=.leaflet-interactive:nth-child(1)", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e0c59947-fdea-4bb3-bd77-422bfc5577f6",
+    "name": "Prueba tarea CYP-15-02",
+    "commands": [{
+      "id": "1936f544-14a5-480e-a4bb-306a07f42add",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71970149-f209-4a1e-9dae-1b5f898f5adc",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=(//div[@id='Formulario'])[2]",
+      "targets": [
+        ["xpath=(//div[@id='Formulario'])[2]", "xpath:attributes"],
+        ["xpath=//main/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5615452c-fe47-481b-aae2-3f9ee4777cf0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=form > div:nth-child(1)",
+      "targets": [
+        ["css=form > div:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='Formulario']/div/form/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aaa283b0-8526-4fde-af38-2d393f3db0a4",
+      "comment": "",
+      "command": "click",
+      "target": "id=Dist",
+      "targets": [
+        ["id=Dist", "id"],
+        ["css=#Dist", "css:finder"],
+        ["xpath=//select[@id='Dist']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb1c2b75-cf13-48ed-939b-322247211081",
+      "comment": "",
+      "command": "select",
+      "target": "id=Dist",
+      "targets": [],
+      "value": "label=LOS BAÑOS DEL INCA"
+    }, {
+      "id": "66862b59-f8ed-4062-9f7b-d44e305fb0bc",
+      "comment": "",
+      "command": "click",
+      "target": "id=Dist",
+      "targets": [
+        ["id=Dist", "id"],
+        ["css=#Dist", "css:finder"],
+        ["xpath=//select[@id='Dist']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "82475d04-2aac-49c5-9582-07b90cb12e1e",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.leaflet-interactive:nth-child(3)",
+      "targets": [
+        ["css=.leaflet-interactive:nth-child(3)", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "15abdcac-e171-439f-b1ec-800713a0a096",
+    "name": "Prueba tarea CYP-19-01",
+    "commands": [{
+      "id": "2320160c-249d-4f97-b153-51d43f36f1a8",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9c3ab2c-d7a6-4154-ba45-2d15f110c1f5",
+      "comment": "",
+      "command": "click",
+      "target": "id=Dist",
+      "targets": [
+        ["id=Dist", "id"],
+        ["css=#Dist", "css:finder"],
+        ["xpath=//select[@id='Dist']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4376a8d8-e2e6-4258-ac3b-68058da5fea3",
+      "comment": "",
+      "command": "select",
+      "target": "id=Dist",
+      "targets": [],
+      "value": "label=LOS BAÑOS DEL INCA"
+    }, {
+      "id": "5296518c-4cac-4677-9380-97472da0d921",
+      "comment": "",
+      "command": "click",
+      "target": "id=Dist",
+      "targets": [
+        ["id=Dist", "id"],
+        ["css=#Dist", "css:finder"],
+        ["xpath=//select[@id='Dist']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dca76d5f-4799-4b1b-bdd3-37916337e423",
+      "comment": "",
+      "command": "click",
+      "target": "id=Tipo",
+      "targets": [
+        ["id=Tipo", "id"],
+        ["css=#Tipo", "css:finder"],
+        ["xpath=//select[@id='Tipo']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0efd5f2d-faca-4fff-aa01-35efb9489001",
+      "comment": "",
+      "command": "select",
+      "target": "id=Tipo",
+      "targets": [],
+      "value": "label=Casos Positivos"
+    }, {
+      "id": "614b0a67-2a76-44cd-8d36-fa97ffe1dd50",
+      "comment": "",
+      "command": "click",
+      "target": "id=Tipo",
+      "targets": [
+        ["id=Tipo", "id"],
+        ["css=#Tipo", "css:finder"],
+        ["xpath=//select[@id='Tipo']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dcba7eee-f434-42ee-ba82-3a6e630e8d3a",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.leaflet-interactive:nth-child(2)",
+      "targets": [
+        ["css=.leaflet-interactive:nth-child(2)", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "64bdcaa0-ea97-4e9a-99f9-03cf287c74a1",
+    "name": "Prueba tarea CYP-19-02",
+    "commands": [{
+      "id": "46dcfbae-9ae5-4fce-ae89-86d2cb5326ab",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c28cd6aa-31d6-4d5e-9692-73b215254890",
+      "comment": "",
+      "command": "click",
+      "target": "id=Dist",
+      "targets": [
+        ["id=Dist", "id"],
+        ["css=#Dist", "css:finder"],
+        ["xpath=//select[@id='Dist']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d2a4878-170c-4340-9dfe-4f13c9fb4dc7",
+      "comment": "",
+      "command": "select",
+      "target": "id=Dist",
+      "targets": [],
+      "value": "label=LOS BAÑOS DEL INCA"
+    }, {
+      "id": "8def5de9-051b-4fbb-bb39-3d6d200db0e5",
+      "comment": "",
+      "command": "click",
+      "target": "id=Dist",
+      "targets": [
+        ["id=Dist", "id"],
+        ["css=#Dist", "css:finder"],
+        ["xpath=//select[@id='Dist']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1dbcbcab-f26f-479a-bd96-8985174a232c",
+      "comment": "",
+      "command": "click",
+      "target": "id=Tipo",
+      "targets": [
+        ["id=Tipo", "id"],
+        ["css=#Tipo", "css:finder"],
+        ["xpath=//select[@id='Tipo']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "476ee02f-9984-4555-b14c-97368414e3f6",
+      "comment": "",
+      "command": "select",
+      "target": "id=Tipo",
+      "targets": [],
+      "value": "label=Casos Recuperados"
+    }, {
+      "id": "1cd49642-e634-4620-b302-8e3156004a5f",
+      "comment": "",
+      "command": "click",
+      "target": "id=Tipo",
+      "targets": [
+        ["id=Tipo", "id"],
+        ["css=#Tipo", "css:finder"],
+        ["xpath=//select[@id='Tipo']", "xpath:attributes"],
+        ["xpath=//div[@id='Formulario']/div/form/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb1a60e4-f2d6-4629-9a30-a62571b198fe",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.leaflet-interactive:nth-child(2)",
+      "targets": [
+        ["css=.leaflet-interactive:nth-child(2)", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "7d01414f-0968-4a68-8ff8-fae55884b161",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["9b90fe14-88a4-4375-9dd6-254aa09ed59e"]
+  }],
+  "urls": ["https://localhost:44374/"],
+  "plugins": []
+}

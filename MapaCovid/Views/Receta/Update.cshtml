@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "Update";
+}
+
+<div class="card h-75 mt-lg-5">
+    <div class="text-center mt-3 mb-3">
+        <h3 class="card-title text-dark font-weight-bold">Crear Receta</h3>
+    </div>
+    <form action="/Receta/Update" method="post">
+        <input type="hidden" name="CuadroClinicoId" value="@Model.CuadroClinicoId" />
+        <input type="hidden" name="FechaEmision" value="@Model.FechaEmision" />
+        <input type="hidden" name="RecetaId" value="@Model.RecetaId" />
+        <div class="col-xl-12 md-3">
+            <h4 class="card-subtitle text-justify font-weight-bold">Receta Clinica</h4>
+        </div>
+        <br />
+        <div class="col-xl-11">
+            <label class="label">Ingrese las indicaciones de la receta</label>
+            <textarea class="form-control" name="Descripcion">@Model.Descripcion</textarea>
+            @Html.ValidationMessage("Descripcion")
+        </div>
+
+        <div class="row my-3 mx-3 text-right">
+            <div class="align-content-end my-3 mx-auto">
+                <a href="/Usuario/Index" class="btn btn-block danger-color text-white">Cancelar</a>
+            </div>
+            <div class="align-content-end my-3 mx-auto">
+                <button class="btn btn-block success-color text-white">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="~/js/site2.js"></script>

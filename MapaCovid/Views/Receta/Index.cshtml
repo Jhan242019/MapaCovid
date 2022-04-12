@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-xl-4 text-left my-3 mx-3">
+    <h3 class="card-title blue-text font-weight-bold">Recetas</h3>
+</div>
+
+<div class="col-xl-12 my-3">
+    <table class="table">
+        <thead class="light-blue text-white">
+            <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">CuadroClinicoId</th>
+                <th scope="col">Descripcion</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <th scope="row">@item.FechaEmision.ToShortDateString()</th>
+                <td>@item.CuadroClinico.CuadroClinicoId</td>
+                <td>@item.Descripcion</td>
+                <td><a href="/receta/delete?RecetaId=@item.RecetaId" class="btn btn-outline-danger">Eliminar</a></td>
+                <td><a href="/receta/Update?RecetaId=@item.RecetaId" class="btn btn-outline-blue">Actualizar</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

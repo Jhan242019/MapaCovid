@@ -1,0 +1,126 @@
+﻿
+@{
+    Layout = "_Layout2";
+    ViewData["Title"] = "CreateContacto";
+}
+
+
+<div class="card h-75 mt-lg-5">
+    <div class="text-center mt-3 mb-3">
+        <h3 class="card-title text-dark font-weight-bold">Registrar Contacto</h3>
+    </div>
+    <form action="/Seguimiento/CreateContacto" method="post">
+        <div class="row my-3 mx-3">
+            <div class="col-xl-12 md-3">
+                <h4 class="card-subtitle text-justify font-weight-bold">Datos personales</h4>
+            </div>
+            <br />
+            <div>
+                <input type="hidden" name="SeguimientoId" value="@ViewBag.Seguimiento" />
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label class="label">Nombres</label>
+                <input type="text" class="form-control" name="Nombre" value="" />
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label class="label">Apellidos</label>
+                <input type="text" class="form-control" name="Apellido" value="" />
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Edad</label>
+                <input type="text" class="form-control" name="Edad" value="" />
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Sexo</label>
+                <select class="custom-select " name="Sexo">
+                    <option value="">--Seleccione sexo--</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <label>Parentesco</label>
+                <select class="custom-select " name="Parentesco">
+                    <option value="">--Seleccione Parentesco--</option>
+                    <option value="Madre">Madre</option>
+                    <option value="Padre">Padre</option>
+                    <option value="Hermano(a)">Hermano(a)</option>
+                    <option value="Esposo(a)">Esposo(a)</option>
+                    <option value="Hijo(a)">Hijo(a)</option>
+                    <option value="Sobrino(a)">Sobrino(a)</option>
+                    <option value="Suegro(a)">Suegro(a)</option>
+                    <option value="Cuñado(a)">Cuñado(a)</option>
+                    <option value="Amigo(a)">Amigo(a)</option>
+                </select>
+            </div>
+        </div>
+        <hr />
+        <div class="row my-3 mx-3">
+            <div class="col-xl-12 md-3">
+                <h4 class="card-subtitle text-justify font-weight-bold">Datos de contacto</h4>
+            </div>
+            <br />
+            <div class="col-xl-6 mb-3">
+                <label class="label">Celular</label>
+                <input class="form-control" type="text" name="Celular" value="" />
+            </div>
+        </div>
+        <hr />
+        <div class="row my-3 mx-3">
+            <div class="col-xl-12 md-3">
+                <h4 class="card-subtitle text-justify font-weight-bold">Datos de geolocalización</h4>
+            </div>
+            <br />
+            <div class="col-xl-6 md-3">
+                <label class="label">Distrito</label>
+                <select id="Dist" class="custom-select" name="DistritoId">
+                    <option value="">--Seleccionar Distrito--</option>
+                    @foreach (var item in ViewBag.distritos)
+                    {
+                        <option value="@item.DistritoId">@item.Nombre</option>
+                    }
+                </select>
+                @Html.ValidationMessage("DistritoId")
+            </div>
+            <div class="col-xl-6 md-3">
+                <label class="label">Dirección</label>
+                <input type="text" class="form-control" name="Calle" value="@ViewBag.Ubicacion.Calle" />
+                @Html.ValidationMessage("Calle")
+            </div>
+            <div class="col-xl-12 md-3">
+                <label>Referencia: </label>
+                <textarea class="form-control md-textarea" name="Referencia" value="@ViewBag.Ubicacion.Referencia"></textarea>
+            </div>
+            <div class="col-xl-12 mt-3 mb-3">
+                <p class="alert alert-info">Presione click en el mapa donde se encuentre su vivienda</p>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <div class="mb-3">
+                    <label>Latitud</label>
+                    <input type="text" class="form-control" id="Lat" name="Lat" value="@ViewBag.Ubicacion.Lat" readonly />
+                    @Html.ValidationMessage("Latitud")
+                </div>
+            </div>
+            <div class="col-xl-6 mb-3">
+                <div class="mb-3">
+                    <label>Longitud</label>
+                    <input type="text" class="form-control" id="Long" name="Long" value="@ViewBag.Ubicacion.Long" readonly />
+                    @Html.ValidationMessage("Longitud")
+                </div>
+            </div>
+            <div class="col-xl-12 mb-3">
+                <div id="map" style="height: 500px;"></div>
+            </div>
+        </div>
+        <hr />
+        <div class="row my-3 mx-3 text-right">
+            <div class="align-content-end my-3 mx-auto">
+                <a href="/Usuario/Index" class="btn btn-block danger-color text-white">Cancelar</a>
+            </div>
+            <div class="align-content-end my-3 mx-auto">
+                <button class="btn btn-block success-color text-white">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
